@@ -11,7 +11,7 @@ void main() async {
 
   await PreferencesManager().init();
     ////////////////////////////////////
-  PreferencesManager().clear();
+  // PreferencesManager().clear();
   runApp(const MyApp());
 }
 

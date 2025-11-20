@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/datasource/remote_data/api_services.dart';
 import 'package:news_app/core/datasource/remote_data/apoi_config.dart';
+import 'package:news_app/core/enum/request_status_enum.dart';
 import 'package:news_app/features/home/model/new_article_model.dart';
 
 class HomeController extends ChangeNotifier {
+  RequestStatusEnum everyThingStatus = RequestStatusEnum.loading;
+  RequestStatusEnum topHeadlineStatus = RequestStatusEnum.loading;
   bool topHeadlineLoading = true;
   bool evertThingLoading = true;
   String? errorMessage;
+  String? selectedCategory;
+
   // bool isloading = true;
   List<newsArticleModel>? NewsTopHeadlineList = [];
   List<newsArticleModel>? newsEveryThingList = [];
@@ -15,30 +20,30 @@ class HomeController extends ChangeNotifier {
     getEverything();
     getTopHeadline();
   }
-  // void initData() {
-  //   getEverything();
-  //   getTopHeadline();
-  // }
+  void updateSelectedCategory(String category) {
+    selectedCategory = category;
+    // getTopHeadline(category: category);
+    notifyListeners();
+  }
 
-  void getTopHeadline() async {
+  void getTopHeadline({String? category}) async {
     try {
       Map<String, dynamic> result = await apiservices.get(
         "${ApiConfig.topHeadline}",
-        params: {"country": "us"},
+        params: {"country": "us","category":selectedCategory},
       );
 
       NewsTopHeadlineList = (result["articles"] as List)
           .map((e) => newsArticleModel.fromJson(e))
           .toList();
-      topHeadlineLoading = false;
+      topHeadlineStatus = RequestStatusEnum.loaded;
       errorMessage = null;
       // notifyListeners();
     } catch (e) {
-      topHeadlineLoading = false;
+      topHeadlineStatus = RequestStatusEnum.error;
       errorMessage = e.toString();
     }
-          notifyListeners();
-
+    notifyListeners();
   }
 
   void getEverything() async {
@@ -54,10 +59,10 @@ class HomeController extends ChangeNotifier {
       newsEveryThingList = (result["articles"] as List)
           .map((e) => newsArticleModel.fromJson(e))
           .toList();
-      evertThingLoading = false;
+      everyThingStatus = RequestStatusEnum.loaded;
       errorMessage = null;
     } catch (e) {
-      evertThingLoading = false;
+      everyThingStatus = RequestStatusEnum.error;
       errorMessage = e.toString();
     }
     notifyListeners();

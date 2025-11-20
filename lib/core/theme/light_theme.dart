@@ -4,11 +4,13 @@ import 'package:news_app/core/theme/light_color.dart';
 ThemeData lightTheme = ThemeData(
   useMaterial3: true,
   brightness: Brightness.light,
+  primaryColor: LightColor.primaryColor,
   colorScheme: ColorScheme.light(
     primaryContainer: Color(0xFFFFFFFF),
     secondary: Color(0xFF3A4640),
   ),
   scaffoldBackgroundColor: Color(0xffFCFCFC),
+  progressIndicatorTheme: ProgressIndicatorThemeData(color: Colors.black),
   // appBarTheme: AppBarTheme(
   //   backgroundColor: Color(0xFFF6F7F9),
   //   titleTextStyle: TextStyle(
