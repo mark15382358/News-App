@@ -11,17 +11,18 @@ ThemeData lightTheme = ThemeData(
   ),
   scaffoldBackgroundColor: Color(0xffFCFCFC),
   progressIndicatorTheme: ProgressIndicatorThemeData(color: Colors.black),
-  // appBarTheme: AppBarTheme(
-  //   backgroundColor: Color(0xFFF6F7F9),
-  //   titleTextStyle: TextStyle(
-  //     color: Color(0xFF161F1B),
-  //     fontSize: 20,
-  //   ),
-  //   centerTitle: true,
-  //   iconTheme: IconThemeData(
-  //     color: Color(0xFF161F1B),
-  //   ),
-  // ),
+  appBarTheme: AppBarTheme(
+    backgroundColor: Color(0xFFF6F7F9),
+    titleTextStyle: TextStyle(
+      color: Color(0xff141414),
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+    ),
+    centerTitle: true,
+    // iconTheme: IconThemeData(
+    //   color: Color(0xFF161F1B),
+    // ),
+  ),
   // switchTheme: SwitchThemeData(
   //   trackColor: WidgetStateProperty.resolveWith((states) {
   //     if (states.contains(WidgetState.selected)) {

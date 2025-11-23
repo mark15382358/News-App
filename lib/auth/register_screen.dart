@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/auth/login.dart';
 import 'package:news_app/core/datasource/local_data/preference_manager.dart';
-import 'package:news_app/core/widget/custom_text_form_field.dart';
+import 'package:news_app/core/widgets/custom_text_form_field.dart';
 import 'package:news_app/features/home/home_screen.dart';
 import 'package:news_app/main/main_screen.dart';
 

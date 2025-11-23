@@ -10,7 +10,7 @@ class HomeController extends ChangeNotifier {
   bool topHeadlineLoading = true;
   bool evertThingLoading = true;
   String? errorMessage;
-  String? selectedCategory;
+  String? selectedCategory = "general";
 
   // bool isloading = true;
   List<newsArticleModel>? NewsTopHeadlineList = [];
@@ -20,17 +20,19 @@ class HomeController extends ChangeNotifier {
     getEverything();
     getTopHeadline();
   }
-  void updateSelectedCategory(String category) {
-    selectedCategory = category;
-    // getTopHeadline(category: category);
-    notifyListeners();
-  }
+  // void updateSelectedCategory(String category) {
+  //   selectedCategory = category;
+  //   // getTopHeadline(category: category);
+  //   notifyListeners();
+  // }
 
   void getTopHeadline({String? category}) async {
     try {
+      topHeadlineStatus = RequestStatusEnum.loading;
+      notifyListeners();
       Map<String, dynamic> result = await apiservices.get(
         "${ApiConfig.topHeadline}",
-        params: {"country": "us","category":selectedCategory},
+        params: {"country": "us", "category": selectedCategory},
       );
 
       NewsTopHeadlineList = (result["articles"] as List)
@@ -48,23 +50,35 @@ class HomeController extends ChangeNotifier {
 
   void getEverything() async {
     try {
+      everyThingStatus = RequestStatusEnum.loading;
+      notifyListeners();
       Map<String, dynamic> result = await apiservices.get(
         '${ApiConfig.everyThing}',
         params: {"q": "tesla"},
       );
-      print("result:  $result");
 
       ///Map<key,value>->List<Map>=>
-      print(result["articles"][1]["description"]);
-      newsEveryThingList = (result["articles"] as List)
-          .map((e) => newsArticleModel.fromJson(e))
-          .toList();
-      everyThingStatus = RequestStatusEnum.loaded;
-      errorMessage = null;
+      if (result["articles"] != null &&
+          (result["articles"] as List).isNotEmpty) {
+        newsEveryThingList = (result["articles"] as List)
+            .map((e) => newsArticleModel.fromJson(e))
+            .toList();
+        everyThingStatus = RequestStatusEnum.loaded;
+        errorMessage = null;
+      } else {
+        everyThingStatus = RequestStatusEnum.error;
+        errorMessage = "No articles found";
+      }
     } catch (e) {
       everyThingStatus = RequestStatusEnum.error;
       errorMessage = e.toString();
     }
+    notifyListeners();
+  }
+
+  updatedSelectedCategory(String category) {
+    selectedCategory = category;
+    getTopHeadline(category: category);
     notifyListeners();
   }
 }

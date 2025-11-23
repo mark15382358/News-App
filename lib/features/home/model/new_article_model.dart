@@ -28,11 +28,7 @@ class newsArticleModel {
       content: json['content'],
     );
   }
-    String formateDateTime() {
-    if (publishedAt == null) return "";
-    final diff = DateTime.now().difference(DateTime.parse(publishedAt!));
-    if (diff.inMinutes < 60) return "${diff.inMinutes} m ago";
-    if (diff.inHours < 24) return "${diff.inHours} h ago";
-    return "${diff.inDays} d ago";
-  }
+  //   String formateDateTime() {
+   
+  // }
 }

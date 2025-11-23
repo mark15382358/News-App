@@ -3,7 +3,6 @@ import 'package:news_app/core/datasource/local_data/preference_manager.dart';
 import 'package:news_app/core/theme/light_theme.dart';
 import 'package:news_app/features/home/home_controller.dart';
 import 'package:news_app/features/splash_screen.dart';
-import 'package:news_app/main/main_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
