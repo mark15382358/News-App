@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/core/constant/app_sizes.dart';
 import 'package:news_app/core/theme/light_color.dart';
 
 ThemeData lightTheme = ThemeData(
@@ -15,7 +16,7 @@ ThemeData lightTheme = ThemeData(
     backgroundColor: Color(0xFFF6F7F9),
     titleTextStyle: TextStyle(
       color: Color(0xff141414),
-      fontSize: 16,
+      fontSize: AppSizes.sp16,
       fontWeight: FontWeight.w700,
     ),
     centerTitle: true,
@@ -54,7 +55,7 @@ ThemeData lightTheme = ThemeData(
       backgroundColor: WidgetStateProperty.all(Color(0xffC53030)),
       foregroundColor: WidgetStateProperty.all(Color(0xFFFFFCFC)),
       textStyle: WidgetStateProperty.all(
-        TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+        TextStyle(fontSize: AppSizes.sp16, fontWeight: FontWeight.w400),
       ),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(borderRadius: BorderRadius.zero),
@@ -121,7 +122,7 @@ ThemeData lightTheme = ThemeData(
     fillColor: Color(0xFFFFFFFF),
     focusColor: Color(0xFFD1DAD6),
     errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(AppSizes.r16),
       // borderSide: BorderSide(color: Colors.red, width: 0.5),
     ),
 

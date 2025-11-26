@@ -1,3 +1,4 @@
+import 'package:news_app/core/constant/app_sizes.dart';
 import 'package:news_app/core/enum/request_status_enum.dart';
 import 'package:news_app/core/extensions/date_time_extension.dart';
 import 'package:news_app/features/home/home_controller.dart';
@@ -21,27 +22,27 @@ class TrendingNews extends StatelessWidget {
             final itemCount = controller.NewsTopHeadlineList?.take(5).length ?? 0;
             if (itemCount == 0) {
               return SizedBox(
-                height: 140,
+                height: AppSizes.h140,
                 child: Center(child: Text("No articles")),
               );
             }
             return SizedBox(
-              height: 140,
+              height: AppSizes.h140,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 physics: ClampingScrollPhysics(),
                 itemCount: itemCount,
                 separatorBuilder: (BuildContext context, int index) =>
-                    SizedBox(width: 12),
+                    SizedBox(width: AppSizes.pw12),
                 itemBuilder: (BuildContext context, int index) {
                   final item = controller.NewsTopHeadlineList![index];
 
                   return Padding(
-                    padding: const EdgeInsets.all(12.0),
+                    padding:  EdgeInsets.all(AppSizes.pw12),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(AppSizes.r12),
                       child: SizedBox(
-                        width: 240,
+                        width: AppSizes.w240,
                         child: Stack(
                           children: [
                             item.urlToImage != null &&
@@ -49,20 +50,20 @@ class TrendingNews extends StatelessWidget {
                                     item.urlToImage!.startsWith("http")
                                 ? CachedNetworkImage(
                                     imageUrl: item.urlToImage!,
-                                    height: 140,
-                                    width: 240,
+                                    height: AppSizes.h140,
+                                    width: AppSizes.w240,
                                     fit: BoxFit.cover,
                                     placeholder: (context, url) => Container(
-                                      height: 140,
-                                      width: 240,
+                                      height: AppSizes.h140,
+                                      width: AppSizes.w240,
                                       color: Colors.grey[300],
                                       child: Center(
                                         child: CircularProgressIndicator(strokeWidth: 2),
                                       ),
                                     ),
                                     errorWidget: (context, url, error) => Container(
-                                      height: 140,
-                                      width: 240,
+                                      height: AppSizes.h140,
+                                      width: AppSizes.w240,
                                       color: Colors.grey,
                                       child: Icon(
                                         Icons.broken_image,
@@ -71,8 +72,8 @@ class TrendingNews extends StatelessWidget {
                                     ),
                                   )
                                 : Container(
-                                    height: 140,
-                                    width: 240,
+                                    height: AppSizes.h140,
+                                    width: AppSizes.w240,
                                     color: Colors.grey,
                                     child: Icon(
                                       Icons.broken_image,
@@ -94,9 +95,9 @@ class TrendingNews extends StatelessWidget {
                               ),
                             ),
                             Positioned(
-                              top: 12,
-                              right: 12,
-                              left: 12,
+                              top: AppSizes.ph12,
+                              right: AppSizes.pw12,
+                              left: AppSizes.pw12,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -104,13 +105,13 @@ class TrendingNews extends StatelessWidget {
                                     item.title ?? "",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 14,
+                                      fontSize: AppSizes.sp14,
                                       fontWeight: FontWeight.w400,
                                     ),
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                   ),
-                                  SizedBox(height: 20),
+                                  SizedBox(height: AppSizes.h20),
                                   Row(
                                     children: [
                                       CircleAvatar(
@@ -120,9 +121,9 @@ class TrendingNews extends StatelessWidget {
                                             ? NetworkImage(item.urlToImage!)
                                             : null,
                                         backgroundColor: Colors.grey,
-                                        radius: 10,
+                                        radius: AppSizes.r10,
                                       ),
-                                      SizedBox(width: 6),
+                                      SizedBox(width: AppSizes.w6),
                                       Expanded(
                                         child: Text(
                                           item.author ?? "",
@@ -137,7 +138,7 @@ class TrendingNews extends StatelessWidget {
                                                 .formateDateTime()
                                             : "",
                                         style: TextStyle(
-                                          fontSize: 14,
+                                          fontSize: AppSizes.sp14,
                                           fontWeight: FontWeight.w400,
                                           color: Colors.white,
                                         ),

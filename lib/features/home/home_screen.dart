@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/core/constant/app_sizes.dart';
 import 'package:news_app/core/theme/light_color.dart';
 import 'package:news_app/features/home/components/categories_list.dart';
 import 'package:news_app/features/home/components/top_headline.dart';
@@ -20,11 +21,11 @@ class HomeScreen extends StatelessWidget {
               slivers: [
                 SliverToBoxAdapter(
                   child: SizedBox(
-                    height: 340,
+                    height: AppSizes.h340,
                     child: Stack(
                       children: [
                         SizedBox(
-                          height: 240,
+                          height: AppSizes.h240,
                           width: double.infinity,
                           child: Image.asset(
                             "assets/images/background.png",
@@ -32,24 +33,24 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         Positioned.fill(
-                          top: 70,
+                          top: AppSizes.ph70,
                           child: Column(
                             children: [
                               Text(
                                 "NEWST",
                                 style: TextStyle(
-                                  fontSize: 40,
+                                  fontSize: AppSizes.sp40,
                                   fontWeight: FontWeight.w400,
                                   color: LightColor.primaryColor,
                                 ),
                               ),
-                              SizedBox(height: 6),
+                              SizedBox(height: AppSizes.ph6),
                               ViewAllComponent(
                                 title: "Trending News",
                                 color: Colors.white,
                                 onTap: () {},
                               ),
-                              SizedBox(height: 12),
+                              SizedBox(height: AppSizes.ph12),
                               TrendingNews(),
                             ],
                           ),

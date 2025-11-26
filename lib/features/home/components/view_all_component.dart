@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/core/constant/app_sizes.dart';
 
 class ViewAllComponent extends StatelessWidget {
   ViewAllComponent({
@@ -13,7 +14,7 @@ class ViewAllComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw16),
 
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -23,7 +24,7 @@ class ViewAllComponent extends StatelessWidget {
             child: Text(
               "$title",
               style: TextStyle(
-                fontSize: 16,
+                fontSize: AppSizes.sp16,
                 fontWeight: FontWeight.w700,
                 color: color,
               ),
@@ -34,7 +35,7 @@ class ViewAllComponent extends StatelessWidget {
             child: Text(
               "View all ",
               style: TextStyle(
-                fontSize: 16,
+                fontSize: AppSizes.sp16,
                 fontWeight: FontWeight.w400,
                 color: color,
                 decoration: TextDecoration.underline,

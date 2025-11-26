@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/core/constant/app_sizes.dart';
 import 'package:news_app/core/datasource/local_data/preference_manager.dart';
 import 'package:news_app/features/onboarding/controller/controller.dart';
 import 'package:news_app/features/onboarding/models/onboarding_model.dart';
@@ -37,7 +38,7 @@ class OnboardingScreen extends StatelessWidget {
                         child: Text(
                           "Skip",
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: AppSizes.sp16,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -46,7 +47,7 @@ class OnboardingScreen extends StatelessWidget {
             ),
           ),
           body: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding:  EdgeInsets.all(AppSizes.w16),
             child: Column(
               children: [
                 Expanded(
@@ -61,21 +62,21 @@ class OnboardingScreen extends StatelessWidget {
                       return Column(
                         children: [
                           Image(image: AssetImage(model.image)),
-                          SizedBox(height: 24),
+                          SizedBox(height: AppSizes.h24),
                           Text(
                             model.title,
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: AppSizes.sp20,
                               fontWeight: FontWeight.w700,
                               color: Color(0xff4E4B66),
                             ),
                           ),
-                          SizedBox(height: 12),
+                          SizedBox(height: AppSizes.h12),
                           Text(
                             model.description,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: AppSizes.sp16,
                               fontWeight: FontWeight.w400,
                               color: Color(0xff6E7191),
                             ),
@@ -85,7 +86,7 @@ class OnboardingScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: AppSizes.h10),
                 SmoothPageIndicator(
                   controller: controller.pageController,
                   count: OnboardingModel.onBoardingList.length,
@@ -95,7 +96,7 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                   onDotClicked: (index) {},
                 ),
-                SizedBox(height: 112),
+                SizedBox(height: AppSizes.h112),
                 Consumer(
                   builder:
                       (

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/core/constant/app_sizes.dart';
 import 'package:news_app/core/theme/light_color.dart';
 import 'package:news_app/features/home/categories_screen.dart';
 import 'package:news_app/features/home/components/top_headline.dart';
@@ -38,16 +39,16 @@ class CategoriesList extends StatelessWidget {
           },
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 16.0, left: 16.0, bottom: 16.0),
+          padding:  EdgeInsets.only(top: AppSizes.ph16, left: AppSizes.sp16, bottom: AppSizes.ph16),
           child: SizedBox(
-            height: 36,
+            height: AppSizes.h36,
             child: Consumer<HomeController>(
               builder: (BuildContext context, Controller, Widget? child) {
                 return ListView.separated(
                   scrollDirection: Axis.horizontal,
                   physics: ClampingScrollPhysics(),
                   itemCount: category.length,
-                  padding: EdgeInsets.only(right: 16),
+                  padding: EdgeInsets.only(right: AppSizes.pw16),
                   itemBuilder: (BuildContext context, int index) {
                     bool isSelected =
                         category[index] == Controller.selectedCategory;
@@ -61,15 +62,15 @@ class CategoriesList extends StatelessWidget {
                             Text(
                               "${category[index][0].toUpperCase() + category[index].substring(1)}",
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: AppSizes.sp16,
                                 fontWeight: FontWeight.w400,
                                 color: Color(0xff363636),
                               ),
                             ),
                             if (isSelected) ...[
-                              SizedBox(height: 6),
+                              SizedBox(height: AppSizes.ph6),
                               Container(
-                                height: 2,
+                                height: AppSizes.ph2,
                                 color: LightColor.primaryColor,
                               ),
                             ],
@@ -79,7 +80,7 @@ class CategoriesList extends StatelessWidget {
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
-                    return SizedBox(width: 12);
+                    return SizedBox(width: AppSizes.pw12);
                   },
                 );
               },

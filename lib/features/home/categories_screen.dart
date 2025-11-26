@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/core/constant/app_sizes.dart';
 import 'package:news_app/core/extensions/date_time_extension.dart';
 import 'package:news_app/core/theme/light_color.dart';
 import 'package:news_app/core/widgets/custom_svg_picture.dart';
@@ -30,18 +31,18 @@ class CategoriesScreen extends StatelessWidget {
             return Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
-                    top: 16.0,
-                    left: 16.0,
-                    bottom: 16.0,
+                  padding: EdgeInsets.only(
+                    top: AppSizes.ph16,
+                    left: AppSizes.pw16,
+                    bottom: AppSizes.ph16,
                   ),
                   child: SizedBox(
-                    height: 36,
+                    height: AppSizes.h36,
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       physics: ClampingScrollPhysics(),
                       itemCount: category.length,
-                      padding: EdgeInsets.only(right: 16),
+                      padding: EdgeInsets.only(right: AppSizes.pw16),
                       itemBuilder: (BuildContext context, int index) {
                         bool isSelected =
                             category[index] == controller.selectedCategory;
@@ -55,15 +56,15 @@ class CategoriesScreen extends StatelessWidget {
                                 Text(
                                   "${category[index][0].toUpperCase() + category[index].substring(1)}",
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: AppSizes.sp16,
                                     fontWeight: FontWeight.w400,
                                     color: Color(0xff363636),
                                   ),
                                 ),
                                 if (isSelected) ...[
-                                  SizedBox(height: 6),
+                                  SizedBox(height: AppSizes.h6),
                                   Container(
-                                    height: 2,
+                                    height: AppSizes.h2,
                                     color: LightColor.primaryColor,
                                   ),
                                 ],
@@ -73,7 +74,7 @@ class CategoriesScreen extends StatelessWidget {
                         );
                       },
                       separatorBuilder: (BuildContext context, int index) {
-                        return SizedBox(width: 12);
+                        return SizedBox(width: AppSizes.pw12);
                       },
                     ),
                   ),
@@ -85,8 +86,8 @@ class CategoriesScreen extends StatelessWidget {
                       final model = controller.NewsTopHeadlineList![index];
                       return Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 8,
+                          horizontal: AppSizes.pw16,
+                          vertical: AppSizes.ph8,
                         ),
                         child: Row(
                           children: [
@@ -94,15 +95,17 @@ class CategoriesScreen extends StatelessWidget {
                                     model.urlToImage!.isNotEmpty &&
                                     model.urlToImage!.startsWith("http")
                                 ? ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(
+                                      AppSizes.r8,
+                                    ),
                                     child: CachedNetworkImage(
                                       imageUrl: model.urlToImage!,
-                                      height: 80,
-                                      width: 140,
+                                      height: AppSizes.h80,
+                                      width: AppSizes.w140,
                                       fit: BoxFit.cover,
                                       placeholder: (context, url) => Container(
-                                        height: 80,
-                                        width: 140,
+                                        height: AppSizes.h80,
+                                        width: AppSizes.w140,
                                         color: Colors.grey[300],
                                         child: Center(
                                           child: CircularProgressIndicator(
@@ -113,8 +116,8 @@ class CategoriesScreen extends StatelessWidget {
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
                                             "assets/images/background.png",
-                                            height: 80,
-                                            width: 140,
+                                            height: AppSizes.h80,
+                                            width: AppSizes.w140,
                                             fit: BoxFit.cover,
                                           ),
                                     ),
@@ -123,8 +126,8 @@ class CategoriesScreen extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(8),
                                     child: Image.asset(
                                       "assets/images/background.png",
-                                      height: 80,
-                                      width: 140,
+                                      height: AppSizes.h80,
+                                      width: AppSizes.w140,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -137,7 +140,7 @@ class CategoriesScreen extends StatelessWidget {
                                   Text(
                                     "${model.title}",
                                     style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: AppSizes.sp16,
                                       fontWeight: FontWeight.w400,
                                       color: Color(0xff141414),
                                     ),
@@ -159,7 +162,7 @@ class CategoriesScreen extends StatelessWidget {
                                                   )
                                                   as ImageProvider,
                                       ),
-                                      SizedBox(width: 6),
+                                      SizedBox(width: AppSizes.w6),
                                       Expanded(
                                         child: Text(
                                           "${model.author ?? ""}".substring(
@@ -170,14 +173,14 @@ class CategoriesScreen extends StatelessWidget {
                                             ),
                                           ),
                                           style: TextStyle(
-                                            fontSize: 12,
+                                            fontSize: AppSizes.sp12,
                                             fontWeight: FontWeight.w400,
                                             color: Color(0xff141414),
                                             overflow: TextOverflow.ellipsis,
                                           ),
                                         ),
                                       ),
-                                      SizedBox(width: 8),
+                                      SizedBox(width: AppSizes.w8),
                                       Expanded(
                                         child: Text(
                                           model.publishedAt != null
@@ -186,7 +189,7 @@ class CategoriesScreen extends StatelessWidget {
                                                 ).formateDateTime()
                                               : "",
                                           style: TextStyle(
-                                            fontSize: 12,
+                                            fontSize: AppSizes.sp12,
                                             fontWeight: FontWeight.w400,
                                             color: Color(0xff141414),
                                             overflow: TextOverflow.ellipsis,

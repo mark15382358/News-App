@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/auth/register_screen.dart';
+import 'package:news_app/core/constant/app_sizes.dart';
 import 'package:news_app/core/datasource/local_data/preference_manager.dart';
 import 'package:news_app/core/widgets/custom_text_form_field.dart';
 import 'package:news_app/main/main_screen.dart';
@@ -80,22 +81,22 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding:  EdgeInsets.all(AppSizes.pw16),
           child: Form(
             key: _key,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset("assets/images/logo.png", height: 45),
-                SizedBox(height: 40),
+                Image.asset("assets/images/logo.png", height: AppSizes.h45),
+                SizedBox(height: AppSizes.h40),
                 Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     "Welcome to Newts",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                    style: TextStyle(fontSize: AppSizes.sp20, fontWeight: FontWeight.w700),
                   ),
                 ),
-                SizedBox(height: 24),
+                SizedBox(height: AppSizes.sp24),
                 CustomTextFormField(
                   controller: emailController,
                   hintText: "mark@gmail.com",
@@ -114,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         : 'Please enter a valid email';
                   },
                 ),
-                SizedBox(height: 24),
+                SizedBox(height: AppSizes.sp24),
                 CustomTextFormField(
                   controller: passwordController,
                   title: "Passward",
@@ -128,15 +129,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 if (erroMessage != null)
                   Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(AppSizes.pw10),
                     child: Text(
                       erroMessage!,
                       style: TextStyle(color: Colors.red),
                     ),
                   ),
-                SizedBox(height: 24),
+                SizedBox(height: AppSizes.h24),
                 SizedBox(
-                  height: 48,
+                  height:AppSizes.h48,
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
@@ -147,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child:isLoading?CircularProgressIndicator(): Text("Sign In"),
                   ),
                 ),
-                SizedBox(height: 34),
+                SizedBox(height: AppSizes.h43),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -165,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text(
                         "Sign Up",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: AppSizes.sp14,
                           fontWeight: FontWeight.w400,
                           color: Theme.of(context).primaryColor,
                         ),
