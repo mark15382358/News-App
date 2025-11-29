@@ -16,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     SearchScreen(),
     BookMark(),
-    Profile(),
+    ProfileScreen(),
   ];
 
   int currentIndex = 0;

@@ -4,6 +4,9 @@ import 'package:http/http.dart' as http;
 import 'package:news_app/core/datasource/remote_data/apoi_config.dart';
 
 class ApiServices {
+  static final ApiServices instance = ApiServices._();
+  ApiServices._();
+    factory ApiServices() => instance;
   Future<dynamic> get(String endpoint, {Map<String, dynamic>? params}) async {
     var url = Uri.https("${ApiConfig.baseUrl}", "/v2/$endpoint", {
       "apiKey": "${ApiConfig.apiKey}",

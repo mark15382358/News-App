@@ -1,6 +1,6 @@
 class ApiConfig {
   static const baseUrl = "newsapi.org";
-  static const apiKey = "9db327332a944862bbee7148fc847251";
+  static const apiKey = "bb7a226341ce4ec995a4c37f4ca7a6af";
 
   //////endPoint
   static const topHeadline = "top-headlines";
