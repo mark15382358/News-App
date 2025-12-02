@@ -41,10 +41,10 @@ A beautiful, fast, and modern **News Application** built with **Flutter** that d
 ---
 
 ## 📱 Screenshots
-![1](https://github.com/user-attachments/assets/de4a2dbb-8efe-4e0c-b3cf-132f568ab458) ![2](https://github.com/user-attachments/assets/22d1d993-c891-4f75-87fc-beb202a2fef2)
-![3](https://github.com/user-attachments/assets/ce1e0397-2494-46be-9a5f-8f7a2a788b74) ![4](https://github.com/user-attachments/assets/d691545f-a07e-49a5-bbbd-ef5231832677)
-![5](https://github.com/user-attachments/assets/28344291-6493-4989-b4c6-9c3de5b30cac) ![6](https://github.com/user-attachments/assets/85d2d2aa-95b7-4094-b2ea-545f821287bc)
-![7](https://github.com/user-attachments/assets/e0a643d8-99ec-42bf-bc61-63b3f864b097) ![8](https://github.com/user-attachments/assets/193e4577-f169-4a04-8f80-ea54057f4bfe)
+![1](https://github.com/user-attachments/assets/de4a2dbb-8efe-4e0c-b3cf-132f568ab458)  ![2](https://github.com/user-attachments/assets/22d1d993-c891-4f75-87fc-beb202a2fef2)
+![3](https://github.com/user-attachments/assets/ce1e0397-2494-46be-9a5f-8f7a2a788b74)  ![4](https://github.com/user-attachments/assets/d691545f-a07e-49a5-bbbd-ef5231832677)
+![5](https://github.com/user-attachments/assets/28344291-6493-4989-b4c6-9c3de5b30cac)  ![6](https://github.com/user-attachments/assets/85d2d2aa-95b7-4094-b2ea-545f821287bc)
+![7](https://github.com/user-attachments/assets/e0a643d8-99ec-42bf-bc61-63b3f864b097)  ![8](https://github.com/user-attachments/assets/193e4577-f169-4a04-8f80-ea54057f4bfe)
 
 
 
